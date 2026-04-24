@@ -1,0 +1,101 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <title>{% block title %} Dashboard {% endblock %}</title>
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/fontawesome.min.css' %}" rel="stylesheet" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+            --color: white;
+            --color1: #2A83B5;
+            --color2: #292B2C;
+        }
+
+        body {
+            background-color: lightgray;
+        }
+
+        /* header */
+        .header {
+            display: float;
+            padding: 10px;
+            text-align: center;
+            height: 50px;
+            color: whitesmoke;
+            background-color: darkslategray;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .header div {
+            padding: 5px;
+        }
+
+        .header .name {
+            float: left;
+        }
+
+        .header .text {
+            float: right;
+        }
+
+        .name span {
+            background-color: white;
+            padding: 4px;
+            color: black;
+            border-radius: 5px;
+        }
+        #demo {
+            width: 500px;
+            background-color: var(--color);
+            padding: 7px;
+            color: #000;
+            margin-right: 10px;
+
+        }
+
+</style>
+</head>
+<body>
+<div class="sidenav">
+
+</div>
+
+
+<div class="content">
+    {% if user.is_authenticated%}
+    {% block content %}
+     <div class="name">
+        Name : <span>{{user}}</span>
+         <br>Your Email : <span>{{user.email}}</span>
+         <br>
+         <br>
+         Time : <span id="demo"></span>
+    </div>
+    <div class="mass">
+     <br>Welcome, <span style="color:black;!important">{{user}}</span>
+    </div>
+    {% endblock %}
+        <a class="logout" href="/logout">Logout</a>
+    {% endif %}
+
+</div>
+
+
+<script>
+    setInterval(myTimer);
+    function myTimer() {
+        const d = new Date();
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    }
+</script>
+
+</body>
+</html>

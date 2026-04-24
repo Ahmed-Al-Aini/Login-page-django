@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% block title %} Login User {% endblock %}
+
+{% block content %}
+
+
+<div class="login-container form" id="form_action">
+    <h1>Login sss</h1>
+   {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form  method="post" id="form">
+        {% csrf_token %}
+        <div class="input-box">
+             {{form.username}}
+            {% if form.username.errors %}
+                <div class="error">{{ form.username.errors }}</div>
+            {% endif %}
+
+        </div>
+        <div class="input-box">
+            {{form.password}}
+            {% if form.password.errors %}
+                <div class="error">{{ form.password.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div id="btn">
+            <button type="submit" class="btn btn-secondary" name="send">Login</button>
+        </div>
+        <p class="register-link">
+            You dont have an account ?
+            <a href="/register/">Signup</a>
+        </p>
+        <p><a href="{% url 'password_reset' %}">نسيت كلمة السر؟</a></p>
+
+    </form>
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+</div>
+
+{% endblock %}

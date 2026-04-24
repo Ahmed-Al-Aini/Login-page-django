@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# البيئة الافتراضية
+venv/
+env/
+ENV/
+.venv/
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# الأسرار والمتغيرات البيئية
+.env
+.env.local
+.env.*.local
+
+# ملفات النظام
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# محررات الكود
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ملفات الإعدادات المحلية
+config.local.*
+settings_local.py
+
+# ملفات النشر
+*.pid
+*.gz
+*.tar
+*.zip
+
+# ملفات الاختبارات والبيانات
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/
+
+# الملفات الثابتة المجمعة (في الإنتاج)
+/staticfiles/
+/static_root/
+/media/
+
+# الملفات المؤقتة
+*.tmp
+*.bak
+*.orig
+
+main/assin
